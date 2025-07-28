@@ -1,0 +1,868 @@
+{
+  "language_detection": {
+    "accuracy": 46.15384615384615,
+    "results": {
+      "第1章 はじめに": {
+        "expected": "ja",
+        "detected": "en",
+        "correct": false
+      },
+      "第一章 引言": {
+        "expected": "zh",
+        "detected": "en",
+        "correct": false
+      },
+      "제1장 서론": {
+        "expected": "ko",
+        "detected": "en",
+        "correct": false
+      },
+      "الفصل الأول مقدمة": {
+        "expected": "ar",
+        "detected": "ar",
+        "correct": true
+      },
+      "अध्याय 1 परिचय": {
+        "expected": "hi",
+        "detected": "zh",
+        "correct": false
+      },
+      "Capítulo 1 Introducción": {
+        "expected": "es",
+        "detected": "es",
+        "correct": true
+      },
+      "Chapitre 1 Introduction": {
+        "expected": "fr",
+        "detected": "fr",
+        "correct": true
+      },
+      "Kapitel 1 Einführung": {
+        "expected": "de",
+        "detected": "de",
+        "correct": true
+      },
+      "Chapter 1 Introduction": {
+        "expected": "en",
+        "detected": "zh",
+        "correct": false
+      },
+      "Capitolo 1 Introduzione": {
+        "expected": "it",
+        "detected": "it",
+        "correct": true
+      },
+      "Capítulo 1 Introdução": {
+        "expected": "pt",
+        "detected": "zh",
+        "correct": false
+      },
+      "Hoofdstuk 1 Inleiding": {
+        "expected": "nl",
+        "detected": "zh",
+        "correct": false
+      },
+      "Kapitel 1 Inledning": {
+        "expected": "sv",
+        "detected": "zh",
+        "correct": false
+      },
+      "Kapitel 1 Innledning": {
+        "expected": "no",
+        "detected": "zh",
+        "correct": false
+      },
+      "Kapitel 1 Indledning": {
+        "expected": "da",
+        "detected": "zh",
+        "correct": false
+      },
+      "Rozdział 1 Wprowadzenie": {
+        "expected": "pl",
+        "detected": "pl",
+        "correct": true
+      },
+      "Kapitola 1 Úvod": {
+        "expected": "sk",
+        "detected": "zh",
+        "correct": false
+      },
+      "Fejezet 1 Bevezetés": {
+        "expected": "hu",
+        "detected": "hu",
+        "correct": true
+      },
+      "Capitol 1 Introducere": {
+        "expected": "ro",
+        "detected": "ro",
+        "correct": true
+      },
+      "Глава 1 Въведение": {
+        "expected": "bg",
+        "detected": "zh",
+        "correct": false
+      },
+      "Poglavlje 1 Uvod": {
+        "expected": "hr",
+        "detected": "hr",
+        "correct": true
+      },
+      "Poglavje 1 Uvod": {
+        "expected": "sl",
+        "detected": "hr",
+        "correct": false
+      },
+      "บทที่ 1 บทนำ": {
+        "expected": "th",
+        "detected": "th",
+        "correct": true
+      },
+      "Κεφάλαιο 1 Εισαγωγή": {
+        "expected": "el",
+        "detected": "el",
+        "correct": true
+      },
+      "פרק 1 מבוא": {
+        "expected": "he",
+        "detected": "he",
+        "correct": true
+      }
+    }
+  },
+  "heading_patterns": {
+    "accuracy": 77.77777777777779,
+    "results": {
+      "en_Chapter 1: Introduction": {
+        "language": "en",
+        "text": "Chapter 1: Introduction",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": true
+      },
+      "en_1.1 Background": {
+        "language": "en",
+        "text": "1.1 Background",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": true
+      },
+      "en_1.1.1 Research Methods": {
+        "language": "en",
+        "text": "1.1.1 Research Methods",
+        "expected_level": "H2",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": false
+      },
+      "en_Appendix A: Data": {
+        "language": "en",
+        "text": "Appendix A: Data",
+        "expected_level": "H1",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": false
+      },
+      "ja_第1章 はじめに": {
+        "language": "ja",
+        "text": "第1章 はじめに",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": true,
+        "correct": true
+      },
+      "ja_1.1 背景": {
+        "language": "ja",
+        "text": "1.1 背景",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "ja_1.1.1 研究方法": {
+        "language": "ja",
+        "text": "1.1.1 研究方法",
+        "expected_level": "H2",
+        "detected_level": "H2",
+        "is_heading": true,
+        "correct": true
+      },
+      "ja_付録A データ": {
+        "language": "ja",
+        "text": "付録A データ",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "zh_第一章 引言": {
+        "language": "zh",
+        "text": "第一章 引言",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": true,
+        "correct": true
+      },
+      "zh_1.1 背景": {
+        "language": "zh",
+        "text": "1.1 背景",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "zh_1.1.1 研究方法": {
+        "language": "zh",
+        "text": "1.1.1 研究方法",
+        "expected_level": "H2",
+        "detected_level": "H2",
+        "is_heading": true,
+        "correct": true
+      },
+      "zh_附录A 数据": {
+        "language": "zh",
+        "text": "附录A 数据",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "ko_제1장 서론": {
+        "language": "ko",
+        "text": "제1장 서론",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": true,
+        "correct": true
+      },
+      "ko_1.1 배경": {
+        "language": "ko",
+        "text": "1.1 배경",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "ko_1.1.1 연구 방법": {
+        "language": "ko",
+        "text": "1.1.1 연구 방법",
+        "expected_level": "H2",
+        "detected_level": "H2",
+        "is_heading": true,
+        "correct": true
+      },
+      "ko_부록A 데이터": {
+        "language": "ko",
+        "text": "부록A 데이터",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "ar_الفصل الأول مقدمة": {
+        "language": "ar",
+        "text": "الفصل الأول مقدمة",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": true,
+        "correct": true
+      },
+      "ar_1.1 خلفية": {
+        "language": "ar",
+        "text": "1.1 خلفية",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "ar_1.1.1 طرق البحث": {
+        "language": "ar",
+        "text": "1.1.1 طرق البحث",
+        "expected_level": "H2",
+        "detected_level": "H2",
+        "is_heading": true,
+        "correct": true
+      },
+      "ar_ملحق أ البيانات": {
+        "language": "ar",
+        "text": "ملحق أ البيانات",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": true
+      },
+      "hi_अध्याय 1 परिचय": {
+        "language": "hi",
+        "text": "अध्याय 1 परिचय",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": true,
+        "correct": true
+      },
+      "hi_1.1 पृष्ठभूमि": {
+        "language": "hi",
+        "text": "1.1 पृष्ठभूमि",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": true,
+        "correct": true
+      },
+      "hi_1.1.1 शोध विधियां": {
+        "language": "hi",
+        "text": "1.1.1 शोध विधियां",
+        "expected_level": "H2",
+        "detected_level": "H2",
+        "is_heading": true,
+        "correct": true
+      },
+      "hi_परिशिष्ट ए डेटा": {
+        "language": "hi",
+        "text": "परिशिष्ट ए डेटा",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": true
+      },
+      "es_Capítulo 1: Introducción": {
+        "language": "es",
+        "text": "Capítulo 1: Introducción",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": true
+      },
+      "es_1.1 Antecedentes": {
+        "language": "es",
+        "text": "1.1 Antecedentes",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": true
+      },
+      "es_1.1.1 Métodos de Investigación": {
+        "language": "es",
+        "text": "1.1.1 Métodos de Investigación",
+        "expected_level": "H2",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": false
+      },
+      "es_Apéndice A: Datos": {
+        "language": "es",
+        "text": "Apéndice A: Datos",
+        "expected_level": "H1",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": false
+      },
+      "fr_Chapitre 1: Introduction": {
+        "language": "fr",
+        "text": "Chapitre 1: Introduction",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": true
+      },
+      "fr_1.1 Contexte": {
+        "language": "fr",
+        "text": "1.1 Contexte",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": true
+      },
+      "fr_1.1.1 Méthodes de Recherche": {
+        "language": "fr",
+        "text": "1.1.1 Méthodes de Recherche",
+        "expected_level": "H2",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": false
+      },
+      "fr_Annexe A: Données": {
+        "language": "fr",
+        "text": "Annexe A: Données",
+        "expected_level": "H1",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": false
+      },
+      "de_Kapitel 1: Einführung": {
+        "language": "de",
+        "text": "Kapitel 1: Einführung",
+        "expected_level": "Title",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": true
+      },
+      "de_1.1 Hintergrund": {
+        "language": "de",
+        "text": "1.1 Hintergrund",
+        "expected_level": "H1",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": true
+      },
+      "de_1.1.1 Forschungsmethoden": {
+        "language": "de",
+        "text": "1.1.1 Forschungsmethoden",
+        "expected_level": "H2",
+        "detected_level": "H1",
+        "is_heading": false,
+        "correct": false
+      },
+      "de_Anhang A: Daten": {
+        "language": "de",
+        "text": "Anhang A: Daten",
+        "expected_level": "H1",
+        "detected_level": "Title",
+        "is_heading": false,
+        "correct": false
+      }
+    }
+  },
+  "text_normalization": {
+    "accuracy": 87.5,
+    "results": {
+      "ja_第１章　はじめに": {
+        "language": "ja",
+        "original": "第１章　はじめに",
+        "expected": "第1章 はじめに",
+        "normalized": "第1章 はじめに",
+        "correct": true
+      },
+      "zh_第一章　引言": {
+        "language": "zh",
+        "original": "第一章　引言",
+        "expected": "第一章 引言",
+        "normalized": "第一章 引言",
+        "correct": true
+      },
+      "ko_제１장　서론": {
+        "language": "ko",
+        "original": "제１장　서론",
+        "expected": "제1장 서론",
+        "normalized": "제1장 서론",
+        "correct": true
+      },
+      "ar_الفصل　الأول　مقدمة": {
+        "language": "ar",
+        "original": "الفصل　الأول　مقدمة",
+        "expected": "الفصل الأول مقدمة",
+        "normalized": "الفصل الأول مقدمة",
+        "correct": true
+      },
+      "hi_अध्याय　१　परिचय": {
+        "language": "hi",
+        "original": "अध्याय　१　परिचय",
+        "expected": "अध्याय 1 परिचय",
+        "normalized": "अध्याय १ परिचय",
+        "correct": false
+      },
+      "es_Capítulo　1:　Introducción": {
+        "language": "es",
+        "original": "Capítulo　1:　Introducción",
+        "expected": "Capítulo 1: Introducción",
+        "normalized": "Capítulo 1: Introducción",
+        "correct": true
+      },
+      "fr_Chapitre　1:　Introduction": {
+        "language": "fr",
+        "original": "Chapitre　1:　Introduction",
+        "expected": "Chapitre 1: Introduction",
+        "normalized": "Chapitre 1: Introduction",
+        "correct": true
+      },
+      "de_Kapitel　1:　Einführung": {
+        "language": "de",
+        "original": "Kapitel　1:　Einführung",
+        "expected": "Kapitel 1: Einführung",
+        "normalized": "Kapitel 1: Einführung",
+        "correct": true
+      }
+    }
+  },
+  "feature_extraction": {
+    "accuracy": 50.0,
+    "results": {
+      "ja_第1章 はじめに": {
+        "language": "ja",
+        "text": "第1章 はじめに",
+        "detected_language": "en",
+        "features": {
+          "text": "第1章 はじめに",
+          "original_text": "第1章 はじめに",
+          "language": "en",
+          "font_size": 16.0,
+          "font_name": "Arial",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 8,
+          "word_count": 2,
+          "char_count": 8,
+          "is_all_caps": false,
+          "is_title_case": false,
+          "has_numbers": true,
+          "has_special_chars": false,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": false,
+          "heading_level": "H1",
+          "has_accents": false,
+          "is_latin_script": true
+        },
+        "correct": false
+      },
+      "zh_第一章 引言": {
+        "language": "zh",
+        "text": "第一章 引言",
+        "detected_language": "en",
+        "features": {
+          "text": "第一章 引言",
+          "original_text": "第一章 引言",
+          "language": "en",
+          "font_size": 16.0,
+          "font_name": "SimSun",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 6,
+          "word_count": 2,
+          "char_count": 6,
+          "is_all_caps": false,
+          "is_title_case": false,
+          "has_numbers": false,
+          "has_special_chars": false,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": false,
+          "heading_level": "H1",
+          "has_accents": false,
+          "is_latin_script": true
+        },
+        "correct": false
+      },
+      "ko_제1장 서론": {
+        "language": "ko",
+        "text": "제1장 서론",
+        "detected_language": "en",
+        "features": {
+          "text": "제1장 서론",
+          "original_text": "제1장 서론",
+          "language": "en",
+          "font_size": 16.0,
+          "font_name": "Malgun Gothic",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 6,
+          "word_count": 2,
+          "char_count": 6,
+          "is_all_caps": false,
+          "is_title_case": false,
+          "has_numbers": true,
+          "has_special_chars": false,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": false,
+          "heading_level": "H1",
+          "has_accents": false,
+          "is_latin_script": true
+        },
+        "correct": false
+      },
+      "ar_الفصل الأول مقدمة": {
+        "language": "ar",
+        "text": "الفصل الأول مقدمة",
+        "detected_language": "ar",
+        "features": {
+          "text": "الفصل الأول مقدمة",
+          "original_text": "الفصل الأول مقدمة",
+          "language": "ar",
+          "font_size": 16.0,
+          "font_name": "Arial",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 17,
+          "word_count": 3,
+          "char_count": 17,
+          "is_all_caps": false,
+          "is_title_case": false,
+          "has_numbers": false,
+          "has_special_chars": false,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": true,
+          "heading_level": "Title",
+          "has_arabic_chars": true,
+          "arabic_char_ratio": 0.8823529411764706,
+          "has_arabic_keywords": true,
+          "is_right_to_left": true
+        },
+        "correct": true
+      },
+      "hi_अध्याय 1 परिचय": {
+        "language": "hi",
+        "text": "अध्याय 1 परिचय",
+        "detected_language": "zh",
+        "features": {
+          "text": "अध्याय 1 परिचय",
+          "original_text": "अध्याय 1 परिचय",
+          "language": "zh",
+          "font_size": 16.0,
+          "font_name": "Arial",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 14,
+          "word_count": 3,
+          "char_count": 14,
+          "is_all_caps": false,
+          "is_title_case": false,
+          "has_numbers": true,
+          "has_special_chars": true,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": false,
+          "heading_level": "H1",
+          "has_chinese_chars": false,
+          "chinese_char_ratio": 0.0,
+          "has_chinese_keywords": false
+        },
+        "correct": false
+      },
+      "es_Capítulo 1: Introducción": {
+        "language": "es",
+        "text": "Capítulo 1: Introducción",
+        "detected_language": "es",
+        "features": {
+          "text": "Capítulo 1: Introducción",
+          "original_text": "Capítulo 1: Introducción",
+          "language": "es",
+          "font_size": 16.0,
+          "font_name": "Arial",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 24,
+          "word_count": 3,
+          "char_count": 24,
+          "is_all_caps": false,
+          "is_title_case": true,
+          "has_numbers": true,
+          "has_special_chars": true,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": false,
+          "heading_level": "Title",
+          "has_accents": true,
+          "is_latin_script": true
+        },
+        "correct": true
+      },
+      "fr_Chapitre 1: Introduction": {
+        "language": "fr",
+        "text": "Chapitre 1: Introduction",
+        "detected_language": "fr",
+        "features": {
+          "text": "Chapitre 1: Introduction",
+          "original_text": "Chapitre 1: Introduction",
+          "language": "fr",
+          "font_size": 16.0,
+          "font_name": "Arial",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 24,
+          "word_count": 3,
+          "char_count": 24,
+          "is_all_caps": false,
+          "is_title_case": true,
+          "has_numbers": true,
+          "has_special_chars": true,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": false,
+          "heading_level": "Title",
+          "has_accents": false,
+          "is_latin_script": true
+        },
+        "correct": true
+      },
+      "de_Kapitel 1: Einführung": {
+        "language": "de",
+        "text": "Kapitel 1: Einführung",
+        "detected_language": "de",
+        "features": {
+          "text": "Kapitel 1: Einführung",
+          "original_text": "Kapitel 1: Einführung",
+          "language": "de",
+          "font_size": 16.0,
+          "font_name": "Arial",
+          "is_bold": true,
+          "is_italic": false,
+          "page_num": 1,
+          "text_length": 21,
+          "word_count": 3,
+          "char_count": 21,
+          "is_all_caps": false,
+          "is_title_case": true,
+          "has_numbers": true,
+          "has_special_chars": true,
+          "starts_with_number": false,
+          "ends_with_punctuation": false,
+          "is_heading_pattern": false,
+          "heading_level": "Title",
+          "has_accents": true,
+          "is_latin_script": true
+        },
+        "correct": true
+      }
+    }
+  },
+  "multilingual_support": {
+    "supported_languages": 27,
+    "language_details": {
+      "en": {
+        "accuracy": 0.9794,
+        "support_level": "full"
+      },
+      "ja": {
+        "accuracy": 0.85,
+        "support_level": "basic"
+      },
+      "zh": {
+        "accuracy": 0.8,
+        "support_level": "basic"
+      },
+      "ko": {
+        "accuracy": 0.8,
+        "support_level": "basic"
+      },
+      "ar": {
+        "accuracy": 0.75,
+        "support_level": "basic"
+      },
+      "hi": {
+        "accuracy": 0.75,
+        "support_level": "basic"
+      },
+      "es": {
+        "accuracy": 0.87,
+        "support_level": "good"
+      },
+      "fr": {
+        "accuracy": 0.87,
+        "support_level": "good"
+      },
+      "de": {
+        "accuracy": 0.87,
+        "support_level": "good"
+      },
+      "it": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "pt": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "nl": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "sv": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "no": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "da": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "pl": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "cs": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "sk": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "hu": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "ro": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "bg": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "hr": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "sl": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "th": {
+        "accuracy": 0.75,
+        "support_level": "basic"
+      },
+      "ru": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "el": {
+        "accuracy": 0.85,
+        "support_level": "good"
+      },
+      "he": {
+        "accuracy": 0.75,
+        "support_level": "basic"
+      }
+    },
+    "overall_accuracy": 0.9794,
+    "multilingual_accuracy_range": {
+      "min": 0.75,
+      "max": 0.9794,
+      "average": 0.8384962962962962
+    }
+  },
+  "sample_pdf_testing": {
+    "test_pdfs/Adobe-India-Hackathon25-main/Challenge_1a/sample_dataset/pdfs/file01.pdf": {
+      "success": true,
+      "processing_time": 0.030606508255004883,
+      "language_detected": "en",
+      "headings_count": 0,
+      "estimated_accuracy": 0
+    },
+    "test_pdfs/Adobe-India-Hackathon25-main/Challenge_1a/sample_dataset/pdfs/file02.pdf": {
+      "success": true,
+      "processing_time": 0.04799962043762207,
+      "language_detected": "en",
+      "headings_count": 17,
+      "estimated_accuracy": 0
+    },
+    "test_pdfs/Adobe-India-Hackathon25-main/Challenge_1a/sample_dataset/pdfs/file03.pdf": {
+      "success": true,
+      "processing_time": 0.07037162780761719,
+      "language_detected": "en",
+      "headings_count": 46,
+      "estimated_accuracy": 0
+    }
+  }
+}

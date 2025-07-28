@@ -1,0 +1,28 @@
+{
+  "round1a_accuracy": 0.4871794871794872,
+  "round1b_accuracy": 0.5833333333333333,
+  "overall_accuracy": 0.5352564102564102,
+  "round1a_results": [
+    {
+      "case": 1,
+      "file": "file01.pdf",
+      "title_match": false,
+      "heading_accuracy": 0,
+      "overall_accuracy": 0.0
+    },
+    {
+      "case": 2,
+      "file": "file02.pdf",
+      "title_match": false,
+      "heading_accuracy": 1.0,
+      "overall_accuracy": 0.5
+    },
+    {
+      "case": 3,
+      "file": "file03.pdf",
+      "title_match": true,
+      "heading_accuracy": 0.9230769230769231,
+      "overall_accuracy": 0.9615384615384616
+    }
+  ]
+}
