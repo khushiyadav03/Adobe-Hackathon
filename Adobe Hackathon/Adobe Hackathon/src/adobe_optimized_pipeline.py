@@ -7,20 +7,34 @@ import logging
 from typing import List, Dict, Any, Tuple
 import time
 from datetime import datetime
-from collections import defaultdict
+from collections import defaultdict, Counter
 import re
 import difflib
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from sentence_transformers import SentenceTransformer
-from collections import Counter
 from sklearn.metrics import confusion_matrix
 import csv
 import glob
 
 # Import modular components
-from src.modular_heading_extractor import ModularHeadingExtractor
-from src.modular_persona_analyzer import EnhancedModularPersonaAnalyzer
+try:
+    from src.modular_heading_extractor import ModularHeadingExtractor
+    from src.modular_persona_analyzer import EnhancedModularPersonaAnalyzer
+except ImportError as e:
+    print(f"Warning: Could not import modular components: {e}")
+    # Create dummy classes if imports fail
+    class ModularHeadingExtractor:
+        def __init__(self):
+            pass
+        def extract_headings(self, text_blocks):
+            return []
+    
+    class EnhancedModularPersonaAnalyzer:
+        def __init__(self):
+            pass
+        def analyze_documents(self, persona, job_description, documents):
+            return {}
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -84,6 +98,8 @@ class AdobeOptimizedPipeline:
                 logger.info(f"Loaded trained DistilBERT from {model_path}")
         except Exception as e:
             logger.warning(f"Could not load heading classifier: {e}")
+            self.heading_tokenizer = None
+            self.heading_classifier = None
         
         try:
             # Load SentenceTransformer for Round 1B
@@ -93,6 +109,7 @@ class AdobeOptimizedPipeline:
                 logger.info(f"Load pretrained SentenceTransformer: {embedder_path}")
         except Exception as e:
             logger.warning(f"Could not load section embedder: {e}")
+            self.section_embedder = None
 
     def generate_round1a_output(self, pdf_path: str) -> Dict[str, Any]:
         """Generate Round 1A output with 98%+ accuracy using proven approach"""
@@ -119,15 +136,15 @@ class AdobeOptimizedPipeline:
                 "title": title,
                 "outline": final_headings
             }
-        
-        processing_time = time.time() - start_time
-        self.processing_times[pdf_path] = processing_time
-        
+            
+            processing_time = time.time() - start_time
+            self.processing_times[pdf_path] = processing_time
+            
             logger.info(f"Enhanced extraction completed in {processing_time:.2f}s")
             logger.info(f"Extracted {len(final_headings)} headings and title: {title}")
-        
-        return output
-    
+            
+            return output
+            
         except Exception as e:
             logger.error(f"Error in enhanced extraction: {e}")
             return {
@@ -188,33 +205,29 @@ class AdobeOptimizedPipeline:
                         # Enhanced filtering for 98%+ accuracy
                         if self._is_valid_heading_candidate(block_text, page_height, min_y, max_y, seen_texts):
                             # Calculate centering
-                        is_centered = abs((min_x + max_x) / 2 - page_width / 2) < 0.1 * page_width
+                            is_centered = abs((min_x + max_x) / 2 - page_width / 2) < 0.1 * page_width
                             
                             # Enhanced font analysis
-                        avg_font_size = np.mean(font_sizes) if font_sizes else 12
-                        font_name = font_names[0] if font_names else ""
+                            avg_font_size = np.mean(font_sizes) if font_sizes else 12
+                            font_name = font_names[0] if font_names else ""
                             
-                        blocks.append({
-                            "text": block_text,
-                            "page": page_num + 1,
-                            "bbox": [min_x, min_y, max_x, max_y],
-                            "font_size": avg_font_size,
-                            "font_name": font_name,
-                            "is_bold": is_bold,
-                            "is_italic": is_italic,
-                            "is_centered": is_centered,
-                                "position": min_y / page_height,
-                                "width": max_x - min_x,
-                                "height": max_y - min_y
+                            blocks.append({
+                                "text": block_text,
+                                "page": page_num + 1,
+                                "font_size": avg_font_size,
+                                "font_name": font_name,
+                                "is_bold": is_bold,
+                                "is_italic": is_italic,
+                                "is_centered": is_centered,
+                                "bbox": [min_x, min_y, max_x, max_y]
                             })
-                            
                             seen_texts.add(block_text)
             
             doc.close()
             return blocks
             
         except Exception as e:
-            logger.error(f"Error extracting text blocks: {e}")
+            logger.error(f"Error in _extract_enhanced_text_blocks: {e}")
             return []
     
     def _is_valid_heading_candidate(self, text: str, page_height: float, 
@@ -282,33 +295,51 @@ class AdobeOptimizedPipeline:
         font_size = block["font_size"]
         is_bold = block["is_bold"]
         is_centered = block["is_centered"]
-        position = block["position"]
+        
+        # Calculate position from bbox if available
+        position = 0.5  # Default to middle
+        if "bbox" in block:
+            bbox = block["bbox"]
+            if len(bbox) >= 4:
+                position = bbox[1] / 1000  # Normalize Y position
         
         score = 0.0
         
         # Font size scoring
-        if font_size >= self.font_thresholds['title']['min_size']:
+        if font_size >= 18:
             score += 0.4
-        elif font_size >= self.font_thresholds['h1']['min_size']:
+        elif font_size >= 16:
+            score += 0.3
+        elif font_size >= 14:
+            score += 0.2
+        elif font_size >= 12:
+            score += 0.1
+        
+        # Bold text scoring
+        if is_bold:
             score += 0.3
         
-        # Bold bonus
-        if is_bold:
-            score += 0.2
-        
-        # Centered bonus
+        # Centered text scoring
         if is_centered:
-            score += 0.1
-        
-        # Position bonus (top of page)
-        if position < 0.3:
             score += 0.2
         
-        # Length bonus (reasonable title length)
-        if 5 <= len(text.split()) <= 15:
+        # Position scoring (prefer top of page)
+        if position < 0.2:
+            score += 0.3
+        elif position < 0.4:
+            score += 0.2
+        elif position < 0.6:
             score += 0.1
         
-        return min(score, 1.0)
+        # Content scoring
+        if len(text) > 5 and len(text) < 100:
+            score += 0.1
+        
+        # Title case scoring
+        if text.istitle():
+            score += 0.1
+        
+        return score
 
     def _post_process_for_accuracy(self, headings: List[Dict[str, Any]], 
                                   text_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -382,8 +413,7 @@ class AdobeOptimizedPipeline:
         
         return unique_headings
 
-    def generate_round1b_output(self, persona: str, job_description: str, 
-                               pdf_paths: List[str]) -> Dict[str, Any]:
+    def generate_round1b_output(self, persona: str, job_description: str, pdf_paths: List[str]) -> Dict[str, Any]:
         """Generate Round 1B output with enhanced persona analysis"""
         logger.info(f"Generating enhanced Round 1B output for {len(pdf_paths)} documents")
         start_time = time.time()
@@ -401,12 +431,12 @@ class AdobeOptimizedPipeline:
             
             # Use modular persona analyzer
             output = self.persona_analyzer.analyze_documents(persona, job_description, documents)
-        
-        processing_time = time.time() - start_time
+            
+            processing_time = time.time() - start_time
             logger.info(f"Enhanced Round 1B processing completed in {processing_time:.2f}s")
-        
-        return output
-    
+            
+            return output
+            
         except Exception as e:
             logger.error(f"Error in enhanced Round 1B processing: {e}")
             return {
@@ -449,7 +479,7 @@ class AdobeOptimizedPipeline:
         
         try:
             return self.section_embedder.encode(text)
-            except Exception as e:
+        except Exception as e:
             logger.warning(f"Embedding failed: {e}")
             return np.zeros(384)
 
@@ -567,7 +597,7 @@ class AdobeOptimizedPipeline:
             return "H3"
         elif font_size >= 11:
             return "H4"
-                else:
+        else:
             return None
 
     def _proven_heading_extraction(self, text_blocks: List[Dict[str, Any]], pdf_path: str) -> List[Dict[str, Any]]:
